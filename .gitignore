@@ -1,0 +1,7 @@
+## Git Ignore the Following
+
+# ignore DS_Store files
+.DS_Store
+
+# ignore vim swap files (.swp)
+*.swp
