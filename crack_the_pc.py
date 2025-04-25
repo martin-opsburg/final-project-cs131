@@ -38,27 +38,34 @@ def get_guess(list_passcode):
     print('What do you think the passcode is?')
     user_guess = input('> ')
     list_user = list(user_guess)
-    check_score(list_user, list_passcode)
+    int_user = list()
+    for digit in list_user:
+        int_user.append(int(digit))
+    check_score(int_user, list_passcode)
 
-def check_score(list_user, list_passcode):
-    print(list_user, list_passcode)
-    #str_passcode = str(list_passcode[0]) + str(list_passcode[1]) + str(list_passcode[2])
-    if list_user == list_passcode:
+def check_score(int_user, list_passcode):
+    print(int_user, list_passcode)
+    if int_user == list_passcode: # this probably needs to be nested to get more than one Green Card
         print('Correct. You Win!')
-    elif list_user[0] == list_passcode[0]:
+    elif int_user[0] == list_passcode[0]:
         print('Green Card')
-    elif list_user[1] == list_passcode[1]:
+    elif int_user[1] == list_passcode[1]:
         print('Green Card')
-    elif list_user[2] == list_passcode[2]:
+    elif int_user[2] == list_passcode[2]:
         print('Green Card')
     else:
-        for digit in list_user:
+        for digit in int_user:
             if digit in list_passcode:
                 print('Blue Card')
             if digit not in list_passcode is True:
                 print('Red Card')
                 break 
 
+#def convert_data(list_user):
+#    for value in list_user:
+#        int(value)
+#    print(list_user)
+#    return
 
 ## simply calling the main function
 main()
