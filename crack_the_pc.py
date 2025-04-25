@@ -45,7 +45,7 @@ def get_guess(list_passcode):
 
 def check_score(int_user, list_user, list_passcode):
     print(int_user, list_passcode)
-    if int_user == list_passcode is True: # this probably needs to be nested to get more than one Green Card
+    if int_user == list_passcode: # this probably needs to be nested to get more than one Green Card
         print('Correct. You Win!')
     elif int_user[0] == list_passcode[0]:
         print('Green Card')
@@ -59,14 +59,29 @@ def check_score(int_user, list_user, list_passcode):
             print('Green Card')
     elif int_user[2] == list_passcode[2]:
         print('Green Card')
+        blue_or_red(int_user, list_passcode)
     else:
-        for digit in list_user:
-            if digit in list_passcode is True:
-                print('Blue Card')
-            elif digit not in list_passcode is True:
-                print('Red Card')
-                return
+        blue_or_red(int_user, list_passcode)
+
+def blue_or_red(int_user, list_passcode):
+    for digit in int_user:
+        if digit in list_passcode:
+            print('Blue Card')
+        
+        if digit not in list_passcode:
+            print('Red Card')
+        
+            
 
 
 ## simply calling the main function
 main()
+
+
+#def check_score(int_user, list_user, list_passcode):
+#    if int_user == list_passcode:
+#        print('Correct, you win!')
+#    eliffor digit in list_user:
+#        if digit not in list_user:
+#            print('Red Card')
+
