@@ -44,34 +44,66 @@ def get_guess(list_passcode):
     check_score(int_user, list_user, list_passcode)
 
 def check_score(int_user, list_user, list_passcode):
-    print(int_user, list_passcode)
-    if int_user == list_passcode: # this probably needs to be nested to get more than one Green Card
-        print('Correct. You Win!')
-    elif int_user[0] == list_passcode[0]:
+    print(int_user, list_passcode) # this print() is here for function testing
+    cards = list()
+    #if int_user == list_passcode: # this probably needs to be nested to get more than one Green Card
+    #    print('Correct. You Win!')
+    if int_user[0] == list_passcode[0]:
         print('Green Card')
+        cards.append('GREEN Card')
         if int_user[1] == list_passcode[1]:
             print('Green Card')
+            cards.append('GREEN Card')
             if int_user[2] == list_passcode[2]:
                 print('Green Card')
+                cards.append('GREEN Card')
+                print(cards)
+                print('Correct. You Win!')
+        elif int_user[2] == list_passcode[2]:
+            print('Green Card')
+            cards.append('GREEN Card')
+        else:
+            blue_or_red(int_user, list_passcode, cards)
     elif int_user[1] == list_passcode[1]:
         print('Green Card')
+        cards.append('GREEN card')
         if int_user[2] == list_passcode[2]:
             print('Green Card')
+            cards.append('GREEN Card')
+            blue_or_red(int_user, list_passcode, cards)
     elif int_user[2] == list_passcode[2]:
         print('Green Card')
-        blue_or_red(int_user, list_passcode)
+        cards.append('GREEN Card')
+        blue_or_red(int_user, list_passcode, cards)
     else:
-        blue_or_red(int_user, list_passcode)
+        blue_or_red(int_user, list_passcode, cards)
+    
+    #show_cards(cards)
 
-def blue_or_red(int_user, list_passcode):
+    #num_cards = len(cards)
+    #show_cards = random.sample(cards, num_cards)
+    #print(show_cards)
+
+def blue_or_red(int_user, list_passcode, cards):
+    cycles = 0
     for digit in int_user:
-        if digit in list_passcode:
+        if digit in list_passcode and digit != cards.index(cycles):
             print('Blue Card')
-        
-        if digit not in list_passcode:
+            cards.append('BLUE Card')
+            cycles += 1
+        elif digit not in list_passcode:
             print('Red Card')
+            cards.append('RED Card')
+            cycles += 1
         
-            
+    #return(cards)
+    show_cards(cards)
+
+def show_cards(cards):
+    print(cards)
+    num_cards = len(cards)
+    display_cards = random.sample(cards, (num_cards))
+    print(display_cards)
 
 
 ## simply calling the main function
