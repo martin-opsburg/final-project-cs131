@@ -4,13 +4,14 @@
 # v0.3 of game 2.3: Crack the Passcode
 
 ### ToDo
-#   0.  Write up better comments
+#   0.  Write up better comments for each function
 #   1.  Figure out a way to  prevent digits that earn a GREEN Card from
 #           also earning a BLUE Card
-#   2.  Wrap most of it up into a loop that
+#   2.  Add some user.input.validation
+#   3.  Wrap most of it up into a loop that
 #           ends when user_digits == correct_digits is True
 #           or 10 fatal attempts at guessing correct_digits
-#   3.  [something I'm forgettings goes here]
+#   4.  
         
 
 # importing random.mod for use with passcode generation
@@ -21,14 +22,12 @@ def main():
     correct_string = str()
     correct_digits = list()
     mk_passcode(correct_string, correct_digits)
-    print(f'{correct_digits} <- correct_digits@line.13.returned') #here for dev.testing
     user_digits = list()
     user_string = str()
     get_guess(user_digits, user_string)
-    print(f'{user_digits} <- user_digits@line16.returned') #here for dev.testing
     cards = list()
-    #user_ints = list()
-    check_score(correct_digits, user_digits, cards)
+    check_score_alt_2(correct_digits, user_digits, cards)
+    show_cards(cards)
 
 ## a simple welcome message
 ## that also outlines the rules
@@ -62,48 +61,22 @@ def get_guess(user_digits, user_string): #, user_ints):
 
     return user_digits
 
-def check_score(correct_digits, user_digits, cards):
-    print(user_digits)
-    if user_digits[0] == correct_digits[0]:
-        cards.append('GREEN Card')
-        if user_digits[1] == correct_digits[1]:
-            cards.append('GREEN Card')
-            if user_digits[2] == correct_digits[2]:
-                cards.append('GREEN Card')
-                print('Correct. You Win!')
-        elif user_digits[2] == correct_digits[2]:
-            cards.append('GREEN Card')
-            blue_or_red(user_digits, correct_digits, cards)
-        else:
-            blue_or_red(user_digits, correct_digits, cards)
-    elif user_digits[1] == correct_digits[1]:
-        cards.append('GREEN card')
-        if user_digits[2] == correct_digits[2]:
-            cards.append('GREEN Card')
-            blue_or_red(user_digits, correct_digits, cards)
-        else:
-            blue_or_red(user_digits, correct_digits, cards)
-    elif user_digits[2] == correct_digits[2]:
-        cards.append('GREEN Card')
-        blue_or_red(user_digits, correct_digits, cards)
-    else:
-        blue_or_red(user_digits, correct_digits, cards)
+def check_score_alt_2(user_digits, correct_digits, cards):
+    cycle = 0
+    while cycle <= 2:
+        for digit in user_digits:
+            if digit not in correct_digits:
+                cards.append('red.card')
+                cycle += 1
+            elif user_digits[int(cycle)] == correct_digits[int(cycle)]:
+                cards.append('green.card')
+                cycle += 1
+            elif user_digits[int(cycle)] in correct_digits and user_digits[int(cycle)] != correct_digits[int(cycle)]:
+                cards.append('blue.card')
+                cycle += 1
 
+    return cards
 
-# needs work -> this will generate a blue even if
-# (digit) already got a GREEN Card
-# I need to find a way to filter GREEN Card winning digits out
-def blue_or_red(user_digits, correct_digits, cards):
-    for digit in user_digits:
-        if digit in correct_digits:
-            cards.append('BLUE Card')
-        elif digit not in correct_digits:
-            cards.append('RED Card')
-        
-    print(f'{correct_digits} :Correct Code')
-    print(f'{user_digits} :User Code')
-    print(f'{cards} :Cards List')
-    show_cards(cards)
 
 def show_cards(cards):
     num_cards = len(cards)
