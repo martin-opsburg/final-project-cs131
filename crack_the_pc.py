@@ -3,6 +3,16 @@
 # cs-131 final project
 # v0.3 of game 2.3: Crack the Passcode
 
+### ToDo
+#   0.  Write up better comments
+#   1.  Figure out a way to  prevent digits that earn a GREEN Card from
+#           also earning a BLUE Card
+#   2.  Wrap most of it up into a loop that
+#           ends when user_digits == correct_digits is True
+#           or 10 fatal attempts at guessing correct_digits
+#   3.  [something I'm forgettings goes here]
+        
+
 # importing random.mod for use with passcode generation
 import random
 
