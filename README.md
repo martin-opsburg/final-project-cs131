@@ -3,7 +3,7 @@
 ### ToDo
 0.  [ ] Write up better comments for each function
 1.  [ ] Add some user.input.validation
-2.  [ ] Wrap most of it up into a loop that
+2.  [done] Wrap most of it up into a loop that
             ends when user_digits == correct_digits is True
             or 10 fatal attempts at guessing correct_digits
 3.  [ ] Put some polish on it
