@@ -17,7 +17,7 @@
 #       [] 
 
 # importing random.mod for use with passcode generation
-import random
+import random,sys
 
 def main():
     greating()
@@ -33,12 +33,19 @@ def main():
 def user_exp_loop(correct_digits, user_digits, cards, user_tries, user_string):
     while user_tries <= 9:
         get_guess(user_digits, user_string)
-        check_score(correct_digits, user_digits, cards)
+        check_score(correct_digits, user_digits, cards, user_tries)
         show_score(cards, user_tries)
         user_string = ""
         user_digits.clear()
         cards.clear()
         user_tries += 1
+    
+    if user_tries == 10:
+        print('Sorry, the code was not cracked.')
+        print('Thanks for playing, nevertheless!')
+        print('Exiting the game...')
+        print()
+        sys.exit()
 
 ## a simple welcome message
 ## that also outlines the rules
@@ -72,7 +79,7 @@ def get_guess(user_digits, user_string): #, user_ints):
 
     return user_digits
 
-def check_score(user_digits, correct_digits, cards):
+def check_score(user_digits, correct_digits, cards, user_tries):
     cycle = 0
     while cycle <= 2:
         for digit in user_digits:
@@ -82,22 +89,26 @@ def check_score(user_digits, correct_digits, cards):
             elif user_digits[int(cycle)] == correct_digits[int(cycle)]:
                 cards.append('green.card')
                 cycle += 1
+                if int(cards.count('green.card')) == 3:
+                    win_exit()
             elif user_digits[int(cycle)] in correct_digits and user_digits[int(cycle)] != correct_digits[int(cycle)]:
                 cards.append('blue.card')
                 cycle += 1
 
     return cards
 
-
 def show_score(cards, user_tries):
     num_cards = len(cards)
     display_cards = random.sample(cards, (num_cards))
-    if cards.count('green.card') == 3:
-        user_tries += 10
-        print('Congrats!!! You CRACKED THE CODE!!!')
-        return user_tries
-    print(f'{display_cards} :Cards Displayed')
+    print(f'{str(display_cards)} :Cards Displayed')
 
+# a simple goodbye message
+def win_exit():
+     print('Congrats, You CRACKED THE CODE!!!')
+     print('Thanks for playing!')
+     print('Exiting the game...')
+     print()
+     sys.exit()
 
 ## simply calling the main function
 main()
