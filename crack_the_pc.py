@@ -35,6 +35,7 @@ def user_exp_loop(correct_digits, user_digits, cards, user_tries, user_string):
         get_guess(user_digits, user_string)
         check_score(correct_digits, user_digits, cards, user_tries)
         show_score(cards, user_tries)
+        print()
         user_string = ""
         user_digits.clear()
         cards.clear()
