@@ -13,7 +13,8 @@
 #       [] remove unused functions
 #       [] exception handling
 #       [] improve the greeting print.format
-        
+#       [] review function names to make sure they make sense
+#       [] 
 
 # importing random.mod for use with passcode generation
 import random
