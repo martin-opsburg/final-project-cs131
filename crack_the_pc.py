@@ -24,12 +24,21 @@ def main():
     correct_string = str()
     correct_digits = list()
     mk_passcode(correct_string, correct_digits)
+    user_tries = 0
     user_digits = list()
     user_string = str()
-    get_guess(user_digits, user_string)
     cards = list()
-    check_score_alt_2(correct_digits, user_digits, cards)
-    show_cards(cards)
+    user_exp_loop(correct_digits, user_digits, cards, user_tries, user_string)
+    
+def user_exp_loop(correct_digits, user_digits, cards, user_tries, user_string):
+    while user_tries <= 9:
+        get_guess(user_digits, user_string)
+        check_score(correct_digits, user_digits, cards)
+        show_score(cards, user_tries)
+        user_string = ""
+        user_digits.clear()
+        cards.clear()
+        user_tries += 1
 
 ## a simple welcome message
 ## that also outlines the rules
@@ -63,7 +72,7 @@ def get_guess(user_digits, user_string): #, user_ints):
 
     return user_digits
 
-def check_score_alt_2(user_digits, correct_digits, cards):
+def check_score(user_digits, correct_digits, cards):
     cycle = 0
     while cycle <= 2:
         for digit in user_digits:
@@ -80,10 +89,15 @@ def check_score_alt_2(user_digits, correct_digits, cards):
     return cards
 
 
-def show_cards(cards):
+def show_score(cards, user_tries):
     num_cards = len(cards)
     display_cards = random.sample(cards, (num_cards))
+    if cards.count('green.card') == 3:
+        user_tries += 10
+        print('Congrats!!! You CRACKED THE CODE!!!')
+        return user_tries
     print(f'{display_cards} :Cards Displayed')
+
 
 ## simply calling the main function
 main()
