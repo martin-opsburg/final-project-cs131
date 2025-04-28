@@ -5,13 +5,14 @@
 
 ### ToDo
 #   0.  Write up better comments for each function
-#   1.  Figure out a way to  prevent digits that earn a GREEN Card from
-#           also earning a BLUE Card
-#   2.  Add some user.input.validation
-#   3.  Wrap most of it up into a loop that
+#   1.  Add some user.input.validation
+#   2.  Wrap most of it up into a loop that
 #           ends when user_digits == correct_digits is True
 #           or 10 fatal attempts at guessing correct_digits
-#   4.  
+#   3.  Put some polish on it
+#       [] remove unused functions
+#       [] exception handling
+#       [] improve the greeting print.format
         
 
 # importing random.mod for use with passcode generation
