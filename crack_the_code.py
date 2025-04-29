@@ -16,6 +16,8 @@
 # importing random.mod for use with passcode generation
 import random,sys
 
+# this is the main function that outlines variables, lists,
+# and fuctions used in the workflow
 def main():
     greating()
     correct_string = str()
@@ -26,7 +28,12 @@ def main():
     user_string = str()
     cards = list()
     user_exp_loop(correct_digits, user_digits, cards, user_tries, user_string)
-    
+
+# this function is here for managing the user experience
+# it tracks the number of tries the user has made,
+# calls functions for getting the user's guesses, grading the guesses,
+# and showing hints/cards
+# it also clears values to reset them for the next prompt in the loop
 def user_exp_loop(correct_digits, user_digits, cards, user_tries, user_string):
     while user_tries <= 9:
         get_guess(user_digits, user_string)
@@ -64,7 +71,7 @@ def mk_passcode(correct_string, correct_digits):
     correct_string = (random.sample(number_pool, 3)) 
     for digit in correct_string:
         correct_digits.append(int(digit))
-    print(f'{correct_digits} <-correct_digits@mk_passcode()')
+    #print(f'{correct_digits} <-correct_digits@mk_passcode()')
     
     return correct_digits
 
