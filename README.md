@@ -1,12 +1,8 @@
-# __CS-131__
-# FINAL PROJECT: Interactive Game Project
-
-# TEAM Dude3_Games
+# CS-131 - FINAL PROJECT: Interactive Game Project
+# Dude3_Games
 Matt
 Erik
 Martin
-
-# __PROJECT OVERVIEW__
 
 # __RUBRIC__
 _Feature_ | 100%
