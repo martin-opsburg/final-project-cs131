@@ -1,15 +1,12 @@
 # martin burger
 # burger_m@lynchburg.edu
 # cs-131 final project
-# v0.3 of game 2.3: Crack the Passcode
+# game 2.3: Crack the Passcode
 
 ### ToDo
 #   0.  Write up better comments for each function
 #   1.  Add some user.input.validation
-#   2.  Wrap most of it up into a loop that
-#           ends when user_digits == correct_digits is True
-#           or 10 fatal attempts at guessing correct_digits
-#   3.  Put some polish on it
+#   2.  Put some polish on it
 #       [] remove unused functions
 #       [] exception handling
 #       [] improve the greeting print.format
@@ -35,7 +32,6 @@ def user_exp_loop(correct_digits, user_digits, cards, user_tries, user_string):
         get_guess(user_digits, user_string)
         check_score(correct_digits, user_digits, cards, user_tries)
         show_score(cards, user_tries)
-        print()
         user_string = ""
         user_digits.clear()
         cards.clear()
@@ -77,7 +73,7 @@ def get_guess(user_digits, user_string): #, user_ints):
     user_string = (input('> '))
     for digit in user_string:
         user_digits.append(int(digit))
-
+    
     return user_digits
 
 def check_score(user_digits, correct_digits, cards, user_tries):
@@ -99,9 +95,12 @@ def check_score(user_digits, correct_digits, cards, user_tries):
     return cards
 
 def show_score(cards, user_tries):
+    print()
     num_cards = len(cards)
     display_cards = random.sample(cards, (num_cards))
-    print(f'{str(display_cards)} :Cards Displayed')
+    hint_card = ' : '.join(display_cards)
+    print(f'{hint_card} :hint_card Displayed'
+          '\n\t')
 
 # a simple goodbye message
 def win_exit():
