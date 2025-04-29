@@ -1,14 +1,20 @@
-# final-project-cs131
+# __CS-131__
+# FINAL PROJECT: Interactive Game Project
 
-### ToDo
-0.  [] Write up better comments for each function
-1.  [] Add some user.input.validation
-2.  [done] Wrap most of it up into a loop that
-            ends when user_digits == correct_digits is True
-            or 10 fatal attempts at guessing correct_digits
-3.  [] Put some polish on it
-            [done] remove unused functions
-            [ ] exception handling
-            [ ] improve the greeting print.format
-            [done] review function names to make sure they make sense
-            [done] write some exit messages: win/lose exit message
+# TEAM Dude3_Games
+Matt
+Erik
+Martin
+
+# __PROJECT OVERVIEW__
+
+# __RUBRIC__
+_Feature_ | 100%
+---|---
+TASKS | Program works and meets all of the specs including the levels, the ten questions, and timing mechanism.
+READABIBLITY | Code is super well organized w/functions and is easy to follow. The functions, variable names, and the separation between the blocks are correct, as we've been taught.
+COMMENTS | All key parts of the code are well commented.
+DOCUMENTATION | The documentation explains...<br> 1. the goal of the project<br> 2. the approach adopted to implement the project<br> &nbsp; &nbsp; &nbsp; &nbsp; hint: use flowchart<br> 3. present a clear table of labor sharing
+OTHER NOTES | Every student ***must*** write documentation for the code they write!
+
+# __SETTING__
