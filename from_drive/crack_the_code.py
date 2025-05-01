@@ -1,7 +1,7 @@
 import random
 
 # this is the main function that outlines variables, lists,
-# and fuctions used in the workflow
+# and functions used in the workflow
 # it also manages the user experience
 # via a while-loop based on the number of code cracks attempted,
 # calls functions for getting the user's guess, grading the guess,
@@ -19,7 +19,7 @@ def user_exp_loop():
     result=0
     while user_tries <= 9:
         get_guess(user_digits, user_string)
-        check_score(correct_digits, user_digits, cards, user_tries,result)
+        check_score(correct_digits, user_digits, cards, user_tries, result)
         show_score(cards, user_tries)
         user_string = ""
         if cards.count('GREEN Card!')==3:
@@ -62,7 +62,7 @@ def make_passcode(correct_string, correct_digits):
     correct_string = (random.sample(number_pool, 3)) 
     for digit in correct_string:
         correct_digits.append(int(digit))
-    print(f'{correct_digits} <-correct_digits@mk_passcode() here as dev feedback')
+    #print(f'{correct_digits} <-correct_digits@mk_passcode() here as dev feedback')
     
 # this is for prompting the user for their code guess
 # the user submission is then used to
@@ -78,7 +78,7 @@ def get_guess(user_digits, user_string):
 # a while-loop is used to process the grading
 # in serial each number of the user's submission is graded
 # using if/elif statements within the while-loop
-# the score of each digit is writen to a list(cards)
+# the score of each digit is written to a list(cards)
 def check_score(user_digits, correct_digits, cards, user_tries, result):
     cycle = 0
     while cycle <= 2:
