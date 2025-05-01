@@ -79,7 +79,7 @@ def get_guess(user_digits, user_string):
         get_guess(user_digits, user_string)
     else:
         for digit in user_string:
-        user_digits.append(int(digit))
+            user_digits.append(int(digit))
     
 # this functions grades the user's code submission
 # since there the number of digits in the code is known (3)
