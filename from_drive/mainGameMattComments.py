@@ -65,7 +65,7 @@ def mainGame():
                         print("You lost the game. Better luck next time!")
                         
                 elif KeyEncryp==0:
-                    print("You failed to enter the correct unenrypted version of the encrypted sequence")
+                    print("You failed to enter the correct unencrypted version of the encrypted sequence")
                     print("Thank you for playing the game. Better luck next time!")
                     
             elif RandQuestGame==0:
@@ -82,10 +82,10 @@ def drawBoard(successful_steps):
     '''
     input:takes takes the number of successful steps
     processing: creates the list with the game locations
-                uses a for loop to print <You are here> based on the succesful steps
+                uses a for loop to print <You are here> based on the successful steps
     output:none
     '''
-    boardList=["Random Question ~~~~~~~~~~~~~~~~~~~~~","Key Encription  ~~~~~~~~~~~~~~~~~~~~~","Cracking the Passcode ~~~~~~~~~~~~~~~"]
+    boardList=["Random Question ~~~~~~~~~~~~~~~~~~~~~","Key Encryption  ~~~~~~~~~~~~~~~~~~~~~","Cracking the Passcode ~~~~~~~~~~~~~~~"]
     print("--------------Game Status--------------")
     for pos in range(len(boardList)):
         if pos==successful_steps:

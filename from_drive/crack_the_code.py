@@ -20,7 +20,7 @@ def user_exp_loop():
     while user_tries <= 9:
         get_guess(user_digits, user_string)
         check_score(correct_digits, user_digits, cards, user_tries, result)
-        show_score(cards, user_tries)
+        show_score(cards)
         user_string = ""
         if cards.count('GREEN Card!')==3:
             result=1
@@ -41,14 +41,15 @@ def user_exp_loop():
 ## that also outlines the rules
 def greeting():
     print('\n\t'
-          '*** Welcome to Crack the Passcode!!! ***\n\t'
+          '*** Welcome to Crack the Code!!! ***\n\t'
           ' You will have 10 chances to crack the code.\n\t'
           ' The code length is 3 digits, and there will be no repeated numbers.\n\t'
-          ' After submitting your answer, you will then receive a clue.\n\t'
-          ' The clues are as follows.\n\t'
-          ' A RED card means that all digits were incorrect.\n\t'
-          ' A BLUE card means that one digit is correct but not in an incorrect position.\n\t'
-          ' A GREEN card means that one digit is correct and is in the correct position.\n\t'
+          ' After submitting your answer, your score will be returned as 3 cards.\n\t'
+          ' The color of each card has meaning based on your answer.\n\t'
+          ' ~~ Each RED Card! means a digit in your answer is not in the secret code.\n\t'
+          ' ~~ Each BLUE Card! means a digit is in the secret code but in an incorrect position.\n\t'
+          ' ~~ Each GREEN Card! means a digit is in the secret code and is in the correct position.\n\t'
+          ' Get 3 GREEN Cards to WIN!!!\n\t'
           ' Good LUCK!!!\n')
 
 # this is where a code is generated for each game
@@ -70,7 +71,14 @@ def make_passcode(correct_string, correct_digits):
 def get_guess(user_digits, user_string): 
     print('What do you think the passcode is?')
     user_string = (input('> '))
-    for digit in user_string:
+    if len(user_string) != 3:
+        print('*** Incorrect Number of Digits Entered ***\n\t'
+              ' The secret code has three digits.\n\t'
+              ' Please try again.')
+        user_string = ""
+        get_guess(user_digits, user_string)
+    else:
+        for digit in user_string:
         user_digits.append(int(digit))
     
 # this functions grades the user's code submission
@@ -89,8 +97,6 @@ def check_score(user_digits, correct_digits, cards, user_tries, result):
             elif user_digits[int(cycle)] == correct_digits[int(cycle)]:
                 cards.append('GREEN Card!')
                 cycle += 1
-                #if int(cards.count('green.card')) == 3:
-                    #win_exit()
             elif user_digits[int(cycle)] in correct_digits and user_digits[int(cycle)] != correct_digits[int(cycle)]:
                 cards.append('BLUE Card!')
                 cycle += 1
@@ -104,7 +110,7 @@ def check_score(user_digits, correct_digits, cards, user_tries, result):
 # how many cards to randomly sample/draw 'n show the user
 # the .join is used to present the list in a
 # more aesthetically please format
-def show_score(cards, user_tries):
+def show_score(cards):
     print()
     num_cards = len(cards)
     display_cards = random.sample(cards, (num_cards))
