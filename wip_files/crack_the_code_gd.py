@@ -30,7 +30,7 @@ def user_exp_loop():
         cards.clear()
         user_tries += 1
         #return result
-
+   
     if user_tries == 10:
         print('Sorry, the code was not cracked.')
         print('Thanks for playing, nevertheless!')
@@ -41,7 +41,7 @@ def user_exp_loop():
 
 ## a simple welcome message
 ## that also outlines the rules
-def greating():
+def greeting():
     print('\n\t'
           '*** Welcome to Crack the Passcode!!! ***\n\t'
           ' You will have 10 chances to crack the code.\n\t'
@@ -59,11 +59,11 @@ def mk_passcode(correct_string, correct_digits):
     correct_string = (random.sample(number_pool, 3)) 
     for digit in correct_string:
         correct_digits.append(int(digit))
-    #print(f'{correct_digits} <-correct_digits@mk_passcode()')
+    print(f'{correct_digits} <-correct_digits@mk_passcode()')
     
     return correct_digits
 
-def get_guess(user_digits, user_string):
+def get_guess(user_digits, user_string): 
     print('What do you think the passcode is?')
     user_string = (input('> '))
     for digit in user_string:
@@ -71,7 +71,7 @@ def get_guess(user_digits, user_string):
     
     return user_digits
 
-def check_score(user_digits, correct_digits, cards, user_tries, result):
+def check_score(user_digits, correct_digits, cards, user_tries,result):
     cycle = 0
     while cycle <= 2:
         for digit in user_digits:
@@ -92,4 +92,13 @@ def show_score(cards, user_tries):
     hint_card = ' : '.join(display_cards)
     print(f'{hint_card} :hint_card Displayed'
           '\n\t')
+
+# a simple goodbye message
+'''
+def win_exit():
+     print('Congrats, You CRACKED THE CODE!!!')
+     print('Thanks for playing!')
+     print('Exiting the game...')
+     print()
+'''
 
